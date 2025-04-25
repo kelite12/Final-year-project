@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <com.ztkj.victe.utils.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="top"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/fornum_item_head_pic"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:id="@+id/fornum_item_head_name"
+                android:text="张三"/>
+            <TextView
+                android:id="@+id/fornum_item_head_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="实打实大大苏苏打打实大苏打打实大苏打大苏打"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.ztkj.victe.utils.MultiImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fornum_item_head_multi"
+        android:layout_marginLeft="60dp"/>
+    <TextView
+        android:id="@+id/fornum_item_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2018-3-13"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="5dp"
+        />
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+</LinearLayout>

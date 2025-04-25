@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+    <script src="../../js/netUtils.js"></script>
+</head>
+<body>
+
+<script>
+
+    var userid = "1"
+    $(function () {
+        var url=window.location.search; //获取url中"?"符后的字串
+        userid = url.substring(url.lastIndexOf("?")+1)
+        getdata();
+
+        $("#form").submit(function () {
+            // alert('hello')
+            var file = document.getElementById("image1");
+            var formData = new FormData();
+            formData.append("pic",file.files[0]);
+            formData.append("userid",$("input[name='userid']").val());
+            formData.append("username",$("input[name='username']").val());
+            formData.append("password",$("input[name='password']").val());
+            formData.append("age",$("input[name='age']").val());
+            formData.append("sex",$("input[name='sex']").val());
+            formData.append("nickname",$("input[name='nickname']").val());
+            formData.append("tel",$("input[name='tel']").val());
+            formData.append("height",$("input[name='height']").val());
+            formData.append("weight",$("input[name='weight']").val());
+            doPostFile('/updateUser',formData,function (data) {
+                if(data == 'true'){
+                    alert('修改成功');
+                    window.location.href='user_info.html'
+                }
+                else{
+                    alert('修改失败');
+                }
+            },"text")
+            return false;
+        })
+    })
+
+    //获取信息
+    function getdata() {
+        doPost('/getUser',{'userid':userid},function (data) {
+            $("#form").append(
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>用户id：</label></div>" +
+                "<div class=\"field\"><input readonly class=\"input w50\" name='userid' value='"+data.userid+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>用户名：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='username' value='"+data.username+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>密码：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='password' value='"+data.password+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>年龄：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='age' value='"+data.age+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>性别：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='sex' value='"+data.sex+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>昵称：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='nickname' value='"+data.nickname+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>电话：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='tel' value='"+data.tel+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>身高：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='height' value='"+data.height+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>体重：</label></div>" +
+                "<div class=\"field\"><input class=\"input w50\" name='weight' value='"+data.weight+"'/></div>"+
+                "</div>"+
+                "<div class=\"form-group\">"+
+                "<div class=\"label\"><label>头像：</label></div>" +
+                "<div class=\"field\">" +
+                "<img id='img' src='../../file/"+data.headPic+"' width='50px' height='50px'/>" +
+                "<input type='file' name='headPic' id=\"image1\" style='display: none'/>"+
+                "</div>"+
+                "</div>"+
+                "  <div class=\"form-group\">\n" +
+                "         <div class=\"label\"><label></label></div>\n" +
+                "         <div class=\"field\"><button class=\"button bg-main icon-check-square-o\" type=\"submit\"> 提交</button></div>\n" +
+                "  </div>"
+
+            )
+            //点击选择图片
+            $("#img").click(function () {
+                $("#image1").click();
+            })
+            //点击文件后
+            $("#image1").change(function () {
+                $("#img").attr('src',URL.createObjectURL($(this)[0].files[0]));
+            })
+        },"json")
+    }
+    
+
+    
+</script>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" id="form" class="form-x" action="/updateNews" enctype="multipart/form-data">
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

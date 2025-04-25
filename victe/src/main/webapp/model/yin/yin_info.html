@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, news-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+    <script src="../../js/netUtils.js"></script>
+     <style type="text/css">
+        .search_input{
+            width: 200px;
+            height: 40px;
+            float: left;
+
+        }
+        .search_div{
+            float: left;
+            line-height: 40px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<form action="#">
+    <div class="form-group">
+        <div class="field">
+             
+             <div class="search_div">title</div>
+            <input type="text" placeholder="" class="input search_input" name="stitle"/>
+            
+
+            <button style="margin-left: 20px;" type="button" class="button border-red" id="searchUserBtn"><span class="icon-search-minus"></span> search</button>
+        </div>
+    </div>
+</form>
+
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> </strong></div>
+    <div class="padding border-bottom" style="display: none;">
+        <a class="button border-yellow" href=""><span class="icon-plus-square-o"></span> Add content</a>
+    </div>
+    <table id="news_table" class="table table-hover text-center">
+        <tr>
+            <th width="5%">number</th>
+            
+            <th>id</th>
+            
+            <th>name</th>
+            
+            <th>picture</th>
+            
+            <th>heat</th>
+            
+            <th>protein</th>
+            
+            <th>sugar content</th>
+            
+            <th>Calcium content</th>
+            
+            <th>Vitamin D content</th>
+            
+            <th>Dietary fiber content</th>
+            
+            <th>time</th>
+            
+            <th width="350">operate</th>
+        </tr>
+    </table>
+</div>
+<p id="duan" align="center"></p>
+<script>
+    //删除
+    function del(id){
+        if(confirm("Are you sure you want to delete it?")){
+            doPost('/deleteYin',{'yinid':id},function (data) {
+                    if(data == 'true'){
+                        alert('Delete successfully');
+                        getdata();//重新获取数据
+                    }
+            },"text")
+        }
+        else{
+            return false;
+        }
+    }
+    //修改
+    function update(id) {
+        window.location.href='yin_update_info.html?'+id;
+    }
+    //获取
+    function getdata(pageNo) {
+        //清除表格
+        $.each($("#news_table tr"),function (n,i) {
+            if(n>0){
+                i.remove();//移除元素
+            }
+        })
+
+        if(typeof pageNo == "undefined"){
+            pageNo = 1;
+        }
+        var param = {}
+        
+        param.title = $("input[name='stitle']").val()
+        
+        param.pageNo = pageNo
+        doPost('/getAllYinByPage',param,function (data) {
+            $.each(data.resultList,function (n,yin) {
+                $("#news_table").append("<tr>\n" +
+                    "<td>"+(n+1)+"</td>\n" +
+                    
+                    
+                         "<td>"+ yin.yinid +"</td>"+
+                    
+                         "<td>"+ yin.title +"</td>"+
+                    
+                         "<td><img src='../../file/"+ yin.pics +"' width='50px' height='50px'/></td>"+
+                    
+                         "<td>"+ yin.re +"</td>"+
+                    
+                         "<td>"+ yin.dan +"</td>"+
+                    
+                         "<td>"+ yin.tang +"</td>"+
+                    
+                         "<td>"+ yin.gai +"</td>"+
+                    
+                         "<td>"+ yin.wei +"</td>"+
+                    
+                         "<td>"+ yin.qian +"</td>"+
+                    
+                         "<td>"+ yin.sendtime +"</td>"+
+                    
+                    "<td > " +
+                    "<button class=\"button border-red\"  onclick=\"return del("+yin.yinid+")\"><span class=\"icon-trash-o\"></span> delete</button>" +
+                    "<button class=\"button border-red\"  onclick=\"return update("+yin.yinid+")\"><span class=\"icon-trash-o\"></span> update</button><br/>" +
+                    "</td>\n" + " </tr>"
+                    );
+            })
+            //分页
+            $("#duan").html('')
+            $("#duan").append("<a href=\"javascript:void(0)\" onclick='getdata("+data.prePage+")'>previous page</a>  "+data.pageNo+"page,Total number of records"+data.rowCount+"条 共"+data.pageCount+"page  <a  href=\"javascript:void(0)\" onclick='getdata("+data.nextPage+")'>next page</a> ")
+
+        },"json")
+
+    }
+    //添加
+    function addNews() {
+        var formData = new FormData();
+             formData.append("title",$("input[name='title']").val());
+             
+             var file_pics = document.getElementById("picture_pics");
+             if(file_pics){
+                formData.append("picture_pics",file_pics.files[0]);
+             }
+             formData.append("re",$("input[name='re']").val());
+             
+             formData.append("dan",$("input[name='dan']").val());
+             
+             formData.append("tang",$("input[name='tang']").val());
+             
+             formData.append("gai",$("input[name='gai']").val());
+             
+             formData.append("wei",$("input[name='wei']").val());
+             
+             formData.append("qian",$("input[name='qian']").val());
+             
+             // formData.append("sendtime",$("input[name='sendtime']").val());
+             
+
+        doPostFile('/insertYin',formData,function (data) {
+                    if(data == 'true'){
+                        $.each($("#news_table tr"),function (n,i) {
+                            if(n>0){
+                                i.remove();//移除元素
+                            }
+                        })
+                        getdata();
+                        alert('Added successfully');
+                        $('form')[1].reset();
+                    }
+                    else{
+                        alert('Add failed');
+                    }
+        },"text")
+    }
+    //页面进入的时候加载
+    $(function () {
+        getdata();
+        $("#addNewsBtn").click(function () {
+            addNews();
+        })
+        //查询
+        $("#searchUserBtn").click(function () {
+            getdata();
+        })
+    })
+
+
+</script>
+
+
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x" action="insertNews" enctype="multipart/form-data">
+
+            
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>name：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="text" class="input w50" name="title" value="" data-validate="required:" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>picture：</label>
+                    </div>
+                    
+                         <div class="field">
+                            <input  type="file" name="picture_pics" class="button bg-blue margin-left" id="picture_pics" value="+ file"  style="float:left;">
+                            <div class="tipss"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>heat：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="text" class="input w50" name="re" value="" data-validate="required:" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>protein：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="text" class="input w50" name="dan" value="" data-validate="required:" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>sugar content：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="text" class="input w50" name="tang" value="" data-validate="required:" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>Calcium content：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="text" class="input w50" name="gai" value="" data-validate="required:" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>Vitamin D content：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="text" class="input w50" name="wei" value="" data-validate="required:" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group">
+                    <div class="label">
+                        <label>Dietary fiber content：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="text" class="input w50" name="qian" value="" data-validate="required:" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+                
+                <div class="form-group" style="display: none">
+                    <div class="label">
+                        <label>sendtime：</label>
+                    </div>
+                    
+                       <div class="field">
+                            <input type="datetime-local" class="input w50" name="sendtime" value="" data-validate="required:请输入" />
+                            <div class="tips"></div>
+                        </div>
+                    
+                </div>
+                
+            
+
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" type="button" id="addNewsBtn"> 提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

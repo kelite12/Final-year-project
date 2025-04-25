@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="南 昌"
+            android:textSize="25sp"
+            android:gravity="start"
+            android:id="@+id/weather_city"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/weather_today"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:gravity="end"
+            android:text="2018年12月12日"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/weathericon_appwidget_04"
+        android:layout_gravity="center"
+        android:id="@+id/weather_pic"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="多云"
+        android:id="@+id/weather_windy"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/weather_temperature"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="14度"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:paddingTop="5dp"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/weather_advice"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text=""
+        android:padding="2dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="@color/white"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/weather_recy"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

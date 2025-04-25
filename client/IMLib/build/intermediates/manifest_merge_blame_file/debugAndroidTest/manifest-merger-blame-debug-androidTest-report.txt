@@ -1,0 +1,179 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.rong.imlib.test" >
+4
+5    <uses-sdk
+5-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:5:5-74
+6        android:minSdkVersion="15"
+6-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:5:15-41
+7        android:targetSdkVersion="23" />
+7-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:5:42-71
+8
+9    <instrumentation
+9-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:11:5-15:68
+10        android:name="android.test.InstrumentationTestRunner"
+10-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:11:22-75
+11        android:functionalTest="false"
+11-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:14:22-52
+12        android:handleProfiling="false"
+12-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:13:22-53
+13        android:label="Tests for io.rong.imlib.test"
+13-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:15:22-66
+14        android:targetPackage="io.rong.imlib.test" />
+14-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:12:22-64
+15
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
+16-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-67
+17-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-64
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-79
+18-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-76
+19    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+19-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-76
+19-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:22-73
+20    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+20-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-75
+20-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-72
+21    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+21-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-71
+21-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:22-68
+22    <uses-permission android:name="android.permission.GET_TASKS" />
+22-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-68
+22-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:22-65
+23    <uses-permission android:name="android.permission.WAKE_LOCK" />
+23-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:5-68
+23-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:22-65
+24    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+24-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:5-80
+24-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:22-77
+25    <uses-permission android:name="android.permission.VIBRATE" />
+25-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:5-66
+25-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:22-63
+26    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+26-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:5-79
+26-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:22-76
+27    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+27-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-81
+27-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:22-78
+28
+29    <application
+29-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:7:5-9:19
+30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+30-->[androidx.core:core:1.0.0] C:\Users\20108\.gradle\wrapper\dists\gradle-6.5-all\caches\transforms-3\3584ba2e1ee7764b543fa4f6df523af8\transformed\core-1.0.0\AndroidManifest.xml:22:18-86
+31        android:debuggable="true" >
+31-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:7:18-43
+32        <uses-library android:name="android.test.runner" />
+32-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:8:9-60
+32-->C:\111\client\IMLib\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger317952165908807602.xml:8:23-57
+33        <!-- imlib config begin -->
+34        <meta-data
+34-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:9-27:45
+35            android:name="RONG_CLOUD_APP_KEY"
+35-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-46
+36            android:value="82hegw5uh0g8x" />
+36-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:13-42
+37
+38        <service
+38-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:9-32:38
+39            android:name="io.rong.imlib.ipc.RongService"
+39-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-57
+40            android:exported="true"
+40-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-36
+41            android:process=":ipc" />
+41-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-35
+42        <service
+42-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:9-36:72
+43            android:name="io.rong.imlib.ReConnectService"
+43-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-58
+44            android:exported="true"
+44-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:13-36
+45            android:permission="android.permission.BIND_JOB_SERVICE" />
+45-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-69
+46
+47        <receiver
+47-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:38:9-40:39
+48            android:name="io.rong.imlib.ConnectChangeReceiver"
+48-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:39:13-63
+49            android:exported="true" />
+49-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:40:13-36
+50        <receiver
+50-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:41:9-43:38
+51            android:name="io.rong.imlib.HeartbeatReceiver"
+51-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:42:13-59
+52            android:process=":ipc" /> <!-- imlib config end -->
+52-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:43:13-35
+53        <!-- 必选： SDK 核心功能 -->
+54        <!-- 第三方相关,向第三方推送服务请求 token 的服务 -->
+55        <!-- 处理 push 消息相关的服务 -->
+56        <service
+56-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:50:9-53:72
+57            android:name="io.rong.push.core.PushRegistrationService"
+57-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:51:13-69
+58            android:exported="true"
+58-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:52:13-36
+59            android:permission="android.permission.BIND_JOB_SERVICE" />
+59-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:53:13-69
+60        <service
+60-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:54:9-57:72
+61            android:name="io.rong.push.core.MessageHandleService"
+61-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:55:13-66
+62            android:exported="true"
+62-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:56:13-36
+63            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- push服务 -->
+63-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:57:13-69
+64        <service
+64-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:60:9-64:46
+65            android:name="io.rong.push.PushService"
+65-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:61:13-52
+66            android:exported="true"
+66-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:62:13-36
+67            android:permission="android.permission.BIND_JOB_SERVICE"
+67-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:63:13-69
+68            android:process="io.rong.push" /> <!-- push 相关事件接收器 -->
+68-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:64:13-43
+69        <receiver
+69-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:67:9-87:20
+70            android:name="io.rong.push.PushReceiver"
+70-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:68:13-53
+71            android:process="io.rong.push" > <!-- 此处进程可以改名，名称需要和PushService所在进程统一 -->
+71-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:69:13-43
+72            <!-- 心跳事件 -->
+73            <intent-filter>
+73-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:71:13-73:29
+74                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+74-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:17-80
+74-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:25-77
+75            </intent-filter>
+76            <!-- 网络变动事件 -->
+77            <intent-filter>
+77-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:75:13-77:29
+78                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+78-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:76:17-79
+78-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:76:25-76
+79            </intent-filter>
+80            <!-- 部分用户事件 -->
+81            <intent-filter>
+81-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:79:13-81:29
+82                <action android:name="android.intent.action.BOOT_COMPLETED" />
+82-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:80:17-79
+82-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:80:25-76
+83            </intent-filter>
+84            <intent-filter>
+84-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:82:13-86:29
+85                <action android:name="android.intent.action.USER_PRESENT" />
+85-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:83:17-77
+85-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:83:25-74
+86                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+86-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:84:17-87
+86-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:84:25-84
+87                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+87-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:85:17-90
+87-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:85:25-87
+88            </intent-filter>
+89        </receiver>
+90    </application>
+91
+92</manifest>

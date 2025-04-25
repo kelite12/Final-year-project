@@ -1,0 +1,115 @@
+body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica,
+		sans-serif;
+	color: #4f6b72;
+	background: #0000ff;
+}
+
+a {
+	color: #c75f3e;
+}
+
+#mytable {
+	width: 700px;
+	padding: 0;
+	margin: 0;
+}
+
+caption {
+	padding: 0 0 5px 0;
+	width: 700px;
+	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: green;
+	border-right: 1px solid #0000ff;
+	border-bottom: 1px solid #0000ff;
+	border-top: 1px solid #0000ff;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #0000ff no-repeat;
+}
+
+th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #0000ff;
+	background: none;
+}
+
+td {
+	border-right: 1px solid #0000ff;
+	border-bottom: 1px solid #0000ff;
+	background: #fff;
+	font-size: 11px;
+	padding: 16px 6px 16px 12px;
+	color: #4f6b72;
+	
+}
+
+td.alt {
+	background: #0000ff;
+	color: #0000ff;
+}
+
+th.spec {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+	border-left: 1px solid #0000ff;
+	border-top: 0;
+	background: #0000ff no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+
+/*---------for IE 5.x bug*/
+html>body td {
+	font-size: 11px;
+}
+
+body,td,th {
+	font-family: ����, Arial;
+	font-size: 12px;
+}
+
+.c1 {
+	background-color: #09C;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: right;
+	padding-right: 5px;
+	width:200px;
+}
+
+	.buttonInput{
+		width:150px;
+		height:32px;
+		border:0px;
+		color:#fff;
+		background-image:url(../images/btn_1.png);
+		font-family:΢���ź�;
+		border-top-left-radius:5px;
+		border-top-right-radius:5px;
+		border-bottom-right-radius:5px;
+		border-bottom-left-radius:5px;
+		box-shadow:0px 0px 5px #444;
+	}
+	
+	.shadows{
+		box-shadow:0px 0px 5px #444;
+		border-top-left-radius:5px;
+		border-top-right-radius:5px;
+		border-bottom-right-radius:5px;
+		border-bottom-left-radius:5px;
+	}

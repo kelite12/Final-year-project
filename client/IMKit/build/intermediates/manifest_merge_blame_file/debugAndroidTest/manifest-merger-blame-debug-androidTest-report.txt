@@ -1,0 +1,302 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.rong.imkit.test" >
+4
+5    <uses-sdk
+5-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:5:5-74
+6        android:minSdkVersion="15"
+6-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:5:15-41
+7        android:targetSdkVersion="23" />
+7-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:5:42-71
+8
+9    <instrumentation
+9-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:11:5-15:68
+10        android:name="android.test.InstrumentationTestRunner"
+10-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:11:22-75
+11        android:functionalTest="false"
+11-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:14:22-52
+12        android:handleProfiling="false"
+12-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:13:22-53
+13        android:label="Tests for io.rong.imkit.test"
+13-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:15:22-66
+14        android:targetPackage="io.rong.imkit.test" />
+14-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:12:22-64
+15
+16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+16-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-80
+16-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-77
+17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-81
+17-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-78
+18    <uses-permission android:name="android.permission.INTERNET" />
+18-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-67
+18-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-64
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-79
+19-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:22-76
+20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+20-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-81
+20-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-78
+21    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取机型信息权限 -->
+21-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-76
+21-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:22-73
+22    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 录音 -->
+22-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:5-75
+22-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:22-72
+23    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+23-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:5-71
+23-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:22-68
+24    <uses-permission android:name="android.permission.GET_TASKS" />
+24-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-68
+24-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:22-65
+25    <uses-permission android:name="android.permission.WAKE_LOCK" />
+25-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:5-68
+25-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:22-65
+26    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+26-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:5-80
+26-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:22-77
+27    <uses-permission android:name="android.permission.VIBRATE" />
+27-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-66
+27-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:22-63
+28    <uses-permission android:name="android.permission.CAMERA" />
+28-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:5-65
+28-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:22-62
+29    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+29-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:5-73
+29-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:22-70
+30    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+30-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:5-85
+30-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:22-82
+31    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+31-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:5-81
+31-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:22-78
+32    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+32-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:5-78
+32-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:22-75
+33    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+33-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:5-76
+33-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:22-73
+34    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+34-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:5-79
+34-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:22-76
+35    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+35-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-81
+35-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:22-78
+36
+37    <application
+37-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:7:5-9:19
+38        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+38-->[androidx.core:core:1.0.0] C:\Users\20108\.gradle\wrapper\dists\gradle-6.5-all\caches\transforms-3\3584ba2e1ee7764b543fa4f6df523af8\transformed\core-1.0.0\AndroidManifest.xml:22:18-86
+39        android:debuggable="true" >
+39-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:7:18-43
+40        <uses-library android:name="android.test.runner" />
+40-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:8:9-60
+40-->C:\111\client\IMKit\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger748122147019656858.xml:8:23-57
+41
+42        <activity android:name="io.rong.imkit.plugin.location.AMapLocationActivity" />
+42-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:9-87
+42-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:19-84
+43        <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity" />
+43-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:9-86
+43-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:19-83
+44        <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity" />
+44-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:9-87
+44-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:19-84
+45        <activity
+45-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:9-37:52
+46            android:name="io.rong.imkit.plugin.image.PictureSelectorActivity"
+46-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-78
+47            android:screenOrientation="portrait" />
+47-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:13-49
+48        <activity
+48-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:38:9-40:52
+49            android:name="io.rong.imkit.plugin.image.PicturePreviewActivity"
+49-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:39:13-77
+50            android:screenOrientation="portrait" /> <!-- 开发者可以修改 RongBaseActivity 的 rc_base_activity_layout 布局文件调整 actionbar -->
+50-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:40:13-49
+51        <activity
+51-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:43:9-51:20
+52            android:name="io.rong.imkit.tools.RongWebviewActivity"
+52-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-67
+53            android:screenOrientation="portrait" >
+53-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-49
+54            <intent-filter>
+54-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:46:13-50:29
+55                <action android:name="io.rong.imkit.intent.action.webview" />
+55-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:47:17-78
+55-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:47:25-75
+56
+57                <category android:name="android.intent.category.DEFAULT" />
+57-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:49:17-76
+57-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:49:27-73
+58            </intent-filter>
+59        </activity>
+60        <activity
+60-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:52:9-55:52
+61            android:name="io.rong.imkit.widget.provider.TakingPicturesActivity"
+61-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:53:13-80
+62            android:configChanges="orientation|keyboardHidden"
+62-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:54:13-63
+63            android:screenOrientation="portrait" />
+63-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:55:13-49
+64        <activity
+64-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:56:9-64:20
+65            android:name="io.rong.imkit.activity.PicturePagerActivity"
+65-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:57:13-71
+66            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+66-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:58:13-71
+67            <intent-filter>
+67-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:59:13-63:29
+68                <action android:name="io.rong.imkit.intent.action.picturepagerview" />
+68-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:60:17-87
+68-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:60:25-84
+69
+70                <category android:name="android.intent.category.DEFAULT" />
+70-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:49:17-76
+70-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:49:27-73
+71            </intent-filter>
+72        </activity>
+73        <activity
+73-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:65:9-68:67
+74            android:name="io.rong.imkit.mention.MemberMentionedActivity"
+74-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:66:13-73
+75            android:configChanges="orientation|keyboardHidden"
+75-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:67:13-63
+76            android:windowSoftInputMode="adjustPan|stateHidden" />
+76-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:68:13-64
+77        <activity android:name="io.rong.imkit.activity.FileManagerActivity" />
+77-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:69:9-79
+77-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:69:19-76
+78        <activity android:name="io.rong.imkit.activity.FileListActivity" />
+78-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:70:9-76
+78-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:70:19-73
+79        <activity android:name="io.rong.imkit.activity.FilePreviewActivity" >
+79-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:71:9-77:20
+79-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:71:19-76
+80            <intent-filter>
+80-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:13-76:29
+81                <action android:name="io.rong.imkit.intent.action.openfile" />
+81-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:73:17-79
+81-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:73:25-76
+82
+83                <category android:name="android.intent.category.DEFAULT" />
+83-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:49:17-76
+83-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:49:27-73
+84            </intent-filter>
+85        </activity>
+86        <activity
+86-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:78:9-81:52
+87            android:name="io.rong.imkit.activity.CSLeaveMessageActivity"
+87-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:79:13-73
+88            android:configChanges="orientation|keyboardHidden"
+88-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:80:13-63
+89            android:screenOrientation="portrait" /> <!-- imlib config begin -->
+89-->[:IMKit] C:\111\client\IMKit\build\intermediates\merged_manifest\debug\AndroidManifest.xml:81:13-49
+90        <meta-data
+90-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:9-27:45
+91            android:name="RONG_CLOUD_APP_KEY"
+91-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-46
+92            android:value="82hegw5uh0g8x" />
+92-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:13-42
+93
+94        <service
+94-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:9-32:38
+95            android:name="io.rong.imlib.ipc.RongService"
+95-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-57
+96            android:exported="true"
+96-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-36
+97            android:process=":ipc" />
+97-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-35
+98        <service
+98-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:9-36:72
+99            android:name="io.rong.imlib.ReConnectService"
+99-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-58
+100            android:exported="true"
+100-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:13-36
+101            android:permission="android.permission.BIND_JOB_SERVICE" />
+101-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-69
+102
+103        <receiver
+103-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:38:9-40:39
+104            android:name="io.rong.imlib.ConnectChangeReceiver"
+104-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:39:13-63
+105            android:exported="true" />
+105-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:40:13-36
+106        <receiver
+106-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:41:9-43:38
+107            android:name="io.rong.imlib.HeartbeatReceiver"
+107-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:42:13-59
+108            android:process=":ipc" /> <!-- imlib config end -->
+108-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:43:13-35
+109        <!-- 必选： SDK 核心功能 -->
+110        <!-- 第三方相关,向第三方推送服务请求 token 的服务 -->
+111        <!-- 处理 push 消息相关的服务 -->
+112        <service
+112-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:50:9-53:72
+113            android:name="io.rong.push.core.PushRegistrationService"
+113-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:51:13-69
+114            android:exported="true"
+114-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:52:13-36
+115            android:permission="android.permission.BIND_JOB_SERVICE" />
+115-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:53:13-69
+116        <service
+116-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:54:9-57:72
+117            android:name="io.rong.push.core.MessageHandleService"
+117-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:55:13-66
+118            android:exported="true"
+118-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:56:13-36
+119            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- push服务 -->
+119-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:57:13-69
+120        <service
+120-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:60:9-64:46
+121            android:name="io.rong.push.PushService"
+121-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:61:13-52
+122            android:exported="true"
+122-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:62:13-36
+123            android:permission="android.permission.BIND_JOB_SERVICE"
+123-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:63:13-69
+124            android:process="io.rong.push" /> <!-- push 相关事件接收器 -->
+124-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:64:13-43
+125        <receiver
+125-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:67:9-87:20
+126            android:name="io.rong.push.PushReceiver"
+126-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:68:13-53
+127            android:process="io.rong.push" > <!-- 此处进程可以改名，名称需要和PushService所在进程统一 -->
+127-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:69:13-43
+128            <!-- 心跳事件 -->
+129            <intent-filter>
+129-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:71:13-73:29
+130                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+130-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:17-80
+130-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:25-77
+131            </intent-filter>
+132            <!-- 网络变动事件 -->
+133            <intent-filter>
+133-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:75:13-77:29
+134                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+134-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:76:17-79
+134-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:76:25-76
+135            </intent-filter>
+136            <!-- 部分用户事件 -->
+137            <intent-filter>
+137-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:79:13-81:29
+138                <action android:name="android.intent.action.BOOT_COMPLETED" />
+138-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:80:17-79
+138-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:80:25-76
+139            </intent-filter>
+140            <intent-filter>
+140-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:82:13-86:29
+141                <action android:name="android.intent.action.USER_PRESENT" />
+141-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:83:17-77
+141-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:83:25-74
+142                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+142-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:84:17-87
+142-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:84:25-84
+143                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+143-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:85:17-90
+143-->[:IMLib] C:\111\client\IMLib\build\intermediates\merged_manifest\debug\AndroidManifest.xml:85:25-87
+144            </intent-filter>
+145        </receiver>
+146    </application>
+147
+148</manifest>

@@ -1,0 +1,4 @@
+io/rong/imkit/MainActivity.java
+ io.rong.imkit.MainActivity
+io/rong/imkit/BuildConfig.java
+ io.rong.imkit.BuildConfig

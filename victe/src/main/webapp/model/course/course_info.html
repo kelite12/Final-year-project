@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, movie-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
+    <div class="padding border-bottom" style="display: none;">
+        <a class="button border-yellow" href=""><span class="icon-plus-square-o"></span> 添加内容</a>
+    </div>
+    <table id="course_table" class="table table-hover text-center">
+        <tr>
+            <th width="5%">ID</th>
+            <th>讲座名称</th>
+            <th>内容</th>
+            <th>学分</th>
+            <th>发布人</th>
+            <th>图片</th>
+            <th>状态</th>
+            <th>发布时间</th>
+
+            <th width="300">操作</th>
+        </tr>
+    </table>
+</div>
+<script>
+    function del(id){
+        if(confirm("您确定要删除吗?")){
+            // return true;
+            $.post('/deleteCourseByCourseid',{'courseid':id},function (data) {
+                if(data == 'true'){
+                    alert('删除成功');
+                    $.each($("#course_table tr"),function (n,i) {
+                       if(n>0){
+                           i.remove();//移除元素
+                       }
+                    })
+                    getdata();//重新获取数据
+                }
+                else{
+                    alert('删除失败');
+                }
+            },"text")
+        }
+        else{
+            return false;
+        }
+    }
+    $(function () {
+        getdata();
+        getUsers();
+    })
+    //获取movie信息
+    function getdata() {
+        $.post('/getAllCourse',null,function (data) {
+            $.each(data,function (n,i) {
+                $("#course_table").append("<tr>\n" +
+                " <td>"+i.courseid+"</td>\n" +
+                " <td>"+i.coursename+"</td>\n" +
+                " <td>"+i.content+"</td>\n" +
+                " <td>"+i.score+"</td>\n" +
+                " <td>"+i.sender.username+"</td>\n" +
+                " <td><img src='../../file/"+i.pic+"' height='40'/></td>\n" +
+                " <td>"+showStatus(i.status)+"</td>\n" +
+                " <td>"+i.sendtime+"</td>\n" +
+                " <td> <button class=\"button border-red\"  onclick=\"return del("+i.courseid+")\"><span class=\"icon-trash-o\"></span> 删除</button>" +
+                ""+showOperator(i.status,i.courseid)+""+
+                "<button class=\"button border-red\" onclick=\"moveToDetails("+i.courseid+")\">课程详情</button>" +
+                " </td>\n</tr>")
+                $("#sendid").val(i.sendid)
+            })
+        },"json")
+    }
+    function showStatus(status) {
+        var statusStr;
+        if (status == '0') {
+            statusStr = "未审核";
+        } else if (status == '1') {
+            statusStr = "审核通过";
+        } else if (status == '2') {
+            statusStr = "审核不通过";
+        }
+        return statusStr;
+    }
+    function showColor(courseflag) {
+        var color;
+        if (courseflag == '1') {
+            color = "red";
+        } else if (courseflag == '2') {
+            color = "green";
+        } else if (courseflag == '3') {
+            color = "blue";
+        } else if (courseflag == '4') {
+            color = "purple";
+        } else if (courseflag == '5') {
+            color = "orange";
+        } else if (courseflag == '6') {
+            color = "pink";
+        } else if (courseflag == '7') {
+            color = "brown";
+        } else if (courseflag == '8') {
+            color = "yellow";
+        } else if (courseflag == '9') {
+            color = "gray";
+        }
+        return color;
+    }
+    function getUsers() {
+        $.post('/getAllUserByUserLevel',{"userLevel":2},function (data) {
+            $.each(data,function (n,i) {
+                $("#teacher").append("<option value='"+i.userid+"'>"+i.username+"</option>")
+            })
+        },"json")
+    }
+    function showExam(status,courseid) {
+        if(status == '1'){
+            return " <button id='changsBtn' class=\"button border-red\" onclick=\"moveToExam("+courseid+")\">查看试卷</button>";
+        } else {
+            return "";
+        }
+    }
+    function showOperator(status,courseid) {
+        return " <button  class=\"button border-red\" value='1' onclick=\"return changeStatus("+courseid+",this.value)\">通过审核</button>"+
+                " <button  class=\"button border-red\" value='2' onclick=\"return changeStatus("+courseid+",this.value)\">不通过审核</button>";
+    }
+
+
+    $(function () {
+        $("#addCourseBtn").click(function () {
+            addCourse();
+        })
+    })
+    // 添加
+    function addCourse() {
+        var file = document.getElementById("image1");
+        var formData = new FormData();
+        formData.append("picutre",file.files[0]);
+        formData.append("coursename",$("input[name='coursename']").val());
+        formData.append("content",$("textarea[name='content']").val());
+        formData.append("score",$("input[name='score']").val());
+        formData.append("sendid",$("input[name='sendid']").val());
+        formData.append("status",$("input[name='status']").val());
+        formData.append("section",$("input[name='section']").val());
+        formData.append("sectionspan",$("input[name='sectionspan']").val());
+        formData.append("week",$("select[name='week']").val());
+        formData.append("classroom",$("input[name='classroom']").val());
+        formData.append("courseflag",$("select[name='courseflag']").val());
+        formData.append("teacherid",$("select[name='teacherid']").val());
+        //alert("111");
+        $.ajax({
+            url:'/insertCourse',
+            type:'post',
+            data:formData,
+            contentType:false,
+            async: false,
+            cache: false,
+            processData: false,
+            success:function (data) {
+                // alert(data);
+                if(data == 'true'){
+                    $.each($("#course_table tr"),function (n,i) {
+                        if(n>0){
+                            i.remove();//移除元素
+                        }
+                    })
+                    getdata();
+                    alert('添加成功');
+                    $('form')[0].reset();
+                }
+                else{
+                    alert('添加失败');
+                }
+            }
+
+        })
+    }
+
+    function changeStatus(id,status){
+        if(confirm("您确定要修改该状态吗?")) {
+            // alert(status);
+            $.post('/updateCourseStatus', {'courseid': id,'status': status}, function (data) {
+                if (data == 'true') {
+                    alert('修改成功');
+                    $.each($("#course_table tr"), function (n, i) {
+                        if (n > 0) {
+                            i.remove();//移除元素
+                        }
+                    })
+                    getdata();//重新获取数据
+                } else {
+                    alert('修改失败');
+                }
+            }, "text")
+        } else {
+            return false;
+        }
+    }
+    
+    function moveToExam(courseid) {
+        window.location.href= "courseExam.html?courseid=" + courseid;
+    }
+
+    function moveToDetails(courseid) {
+        window.location.href= "details_info.html?courseid=" + courseid;
+    }
+
+
+</script>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x" action="insertmovie" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="label">
+                    <label>课程名称 ：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="coursename" value="" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>内容 ：</label>
+                </div>
+                <div class="field">
+                    <textarea name="content" style="width: 700px; height: 200px;"></textarea>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>学分 ：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="score" value="" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <input type="hidden" class="input w50" name="sendid" id="sendid" value="1" />
+            <div class="form-group">
+                <div class="label">
+                    <label>图片：</label>
+                </div>
+                <div class="field">
+                    <input type="file" name="pic" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
+                    <div class="tipss"></div>
+                </div>
+            </div>
+            <input type="hidden" class="input w50" name="status" value="0" />
+            <div class="form-group" style="display:none;">
+                <div class="label">
+                    <label> ：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="section" value="1" />
+                </div>
+            </div>
+            <div class="form-group" style="display:none;">
+                <div class="label">
+                    <label> ：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="sectionspan" value="2" />
+                </div>
+            </div>
+            <div class="form-group" style="display: none;">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <select name="week" >
+                        <option value="1" selected>星期一</option>
+                        <option value="2">星期二</option>
+                        <option value="3">星期三</option>
+                        <option value="4">星期四</option>
+                        <option value="5">星期五</option>
+                        <option value="6">星期六</option>
+                        <option value="7">星期日</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" style="display: none;">
+                <div class="label">
+                    <label> ：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="classroom" value="101" />
+                </div>
+            </div>
+            <div class="form-group" style="display: none">
+                <div class="label">
+                    <label>颜色：</label>
+                </div>
+                <div class="field">
+                    <select name="courseflag" value="">
+                        <option value="1">红色</option>
+                        <option value="2">绿色</option>
+                        <option value="3">蓝色</option>
+                        <option value="4">紫色</option>
+                        <option value="5">橙色</option>
+                        <option value="6">粉色</option>
+                        <option value="7">棕色</option>
+                        <option value="8">黄色</option>
+                        <option value="9">灰色</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" style="display:none;">
+                <div class="label">
+                    <label>教师：</label>
+                </div>
+                <div class="field">
+                    <select name="teacherid" id="teacher">
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button id="addCourseBtn" class="button bg-main icon-check-square-o" type="button"> 提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

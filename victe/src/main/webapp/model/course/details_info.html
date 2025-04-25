@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, details-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
+    <div class="padding border-bottom" style="display: none;">
+        <a class="button border-yellow" href=""><span class="icon-plus-square-o"></span> 添加内容</a>
+    </div>
+    <table id="details_table" class="table table-hover text-center">
+        <tr>
+            <th width="5%">ID</th>
+            <th>课程</th>
+            <th>标题</th>
+            <th>内容</th>
+            <th>图片</th>
+            <th>视频</th>
+            <th>状态</th>
+            <th width="250">操作</th>
+        </tr>
+    </table>
+</div>
+<script>
+    function del(id){
+        if(confirm("您确定要删除吗?")){
+            // return true;
+            $.post('/deleteDetails',{'detailsid':id},function (data) {
+                if(data == 'true'){
+                    alert('删除成功');
+                    $.each($("#details_table tr"),function (n,i) {
+                       if(n>0){
+                           i.remove();//移除元素
+                       }
+                    })
+                    getdata($("#courseid").val());//重新获取数据
+                }
+                else{
+                    alert('删除失败');
+                }
+            },"text")
+        }
+        else{
+            return false;
+        }
+    }
+    $(function () {
+        var courseid;
+        var url=window.location.search; //获取url中"?"符后的字串
+        if(url.indexOf("?")!=-1){
+            courseid = url.substr(url.indexOf("=")+1);
+        }
+        getdata(courseid);
+        $("#courseid").val(courseid)
+    })
+    //获取details信息
+    function getdata(courseid) {
+        $.post('/getDetailsByCourseid',{"courseid":courseid},function (data) {
+            $.each(data,function (n,i) {
+                $("#details_table").append("<tr>\n" +
+                " <td>"+i.detailsid+"</td>\n" +
+                " <td>"+i.course.coursename+"</td>\n" +
+                " <td>"+i.title+"</td>\n" +
+                " <td>"+i.content+"</td>\n" +
+                " <td><img src='../../file/"+i.pic+"' height='40'/></td>\n" +
+                (i.video==null?"<td></td>":(i.video==""?"<td></td>":"<td><video width=\"320\" height=\"240\" controls><source src='/file/"+i.video+"' type='video/mp4'/></video></td>")) +
+                " <td>"+showStatus(i.status)+"</td>\n" +
+                " <td> <button class=\"button border-red\"  onclick=\"return del("+i.detailsid+")\"><span class=\"icon-trash-o\"></span> 删除</button>" +
+                ""+showOperator(i.detailsid)+""+
+                " </td>\n</tr>")
+            })
+        },"json")
+    }
+    function showStatus(status) {
+        var statusStr;
+        if (status == '0') {
+            statusStr = "未审核";
+        } else if (status == '1') {
+            statusStr = "审核通过";
+        } else if (status == '2') {
+            statusStr = "审核不通过";
+        }
+        return statusStr;
+    }
+    function showOperator(detailsid) {
+        return " <button  class=\"button border-red\" onclick=\"return changeStatus("+detailsid+",1)\">通过审核</button>"+
+            " <button  class=\"button border-red\" onclick=\"return changeStatus("+detailsid+",2)\">不通过审核</button>";
+    }
+    function changeStatus(id,status){
+        if(confirm("您确定要修改该状态吗?")) {
+            // alert(status);
+            $.post('/updateDetailsStatus', {'detailsid': id,'status': status}, function (data) {
+                if (data == 'true') {
+                    alert('修改成功');
+                    $.each($("#details_table tr"), function (n, i) {
+                        if (n > 0) {
+                            i.remove();//移除元素
+                        }
+                    })
+                    getdata($("#courseid").val());//重新获取数据
+                } else {
+                    alert('修改失败');
+                }
+            }, "text")
+        } else {
+            return false;
+        }
+    }
+
+    $(function () {
+        $("#adddetailsBtn").click(function () {
+            adddetails();
+        })
+    })
+    // 添加
+    function adddetails() {
+        var picfile = document.getElementById("image1");
+        var vidfile = document.getElementById("video1");
+        var formData = new FormData();
+        formData.append("picutre",picfile.files[0]);
+        formData.append("videoFres",vidfile.files[0]);
+        formData.append("title",$("input[name='title']").val());
+        formData.append("content",$("textarea[name='content']").val());
+        formData.append("courseid",$("input[name='courseid']").val());
+        formData.append("status","1");
+        //alert("111");
+        $.ajax({
+            url:'/insertDetails',
+            type:'post',
+            data:formData,
+            contentType:false,
+            async: false,
+            cache: false,
+            processData: false,
+            success:function (data) {
+                // alert(data);
+                if(data == 'true'){
+                    $.each($("#details_table tr"),function (n,i) {
+                        if(n>0){
+                            i.remove();//移除元素
+                        }
+                    })
+                    getdata($("#courseid").val());
+                    alert('添加成功');
+                    $('form')[0].reset();
+                }
+                else{
+                    alert('添加失败');
+                }
+            }
+        })
+    }
+
+
+
+</script>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x" action="insertdetails" enctype="multipart/form-data">
+            <input type="hidden" name="courseid" id="courseid"  value="" />
+            <input type="hidden" name="status" value="0" />
+            <div class="form-group">
+                <div class="label">
+                    <label>标题：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="title" value=""  />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>内容：</label>
+                </div>
+                <div class="field">
+                    <textarea name="content" style="width: 700px; height: 200px;"></textarea>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>图片：</label>
+                </div>
+                <div class="field">
+                    <input type="file" name="pic" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>视频：</label>
+                </div>
+                <div class="field">
+                    <input type="file" name="video" class="button bg-blue margin-left" id="video1" value="+ 浏览上传"  style="float:left;">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button id="adddetailsBtn" class="button bg-main icon-check-square-o" type="button"> 提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

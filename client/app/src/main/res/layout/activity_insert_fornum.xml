@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select album"
+        android:gravity="right"
+        android:paddingRight="10dp"
+        android:id="@+id/selectCamera"
+        android:textColor="@color/colorPrimary"/>
+    <EditText
+        android:id="@+id/fornum_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Please enter a title"
+        android:background="@null"
+        android:paddingLeft="5dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+    <EditText
+        android:id="@+id/insert_fornum_content"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="Thoughts at this moment"
+        android:textSize="18sp"
+        android:paddingLeft="5dp"
+        android:background="@null"
+        android:paddingTop="10dp"
+        android:gravity="top"/>
+
+    <com.ztkj.victe.utils.MultiImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/insert_fornum_imageview"
+        />
+
+
+    <Button
+        android:id="@+id/submit_fornum"
+        android:layout_marginTop="30dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/login_buttonaround_bg"/>
+
+
+
+</LinearLayout>
+</ScrollView>

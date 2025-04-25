@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="title:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pics:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/add_course_iv"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/add_yin_iv_pics"
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="re:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_re"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dan:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_dan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tang:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_tang"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gai:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_gai"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="wei:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_wei"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qian:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_qian"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sendtime:"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        />
+    
+    <EditText
+        android:id="@+id/add_yin_edit_sendtime"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:hint="请输入..."
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    
+
+    <Button
+        android:id="@+id/add_yin_btn"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/login_buttonaround_bg"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="30dp"
+        android:text="提   交"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
+</ScrollView>

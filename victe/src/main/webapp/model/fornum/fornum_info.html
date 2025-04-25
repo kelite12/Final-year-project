@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> </strong></div>
+    <div class="padding border-bottom" style="display: none;">
+        <a class="button border-yellow" href=""><span class="icon-plus-square-o"></span> Add content</a>
+    </div>
+    <table id="user_table" class="table table-hover text-center">
+        <tr>
+            <th width="5%">ID</th>
+            <th>title</th>
+            <th>content</th>
+            <th>Publisher</th>
+            <th>picture</th>
+            <th width="250">operate</th>
+        </tr>
+
+
+
+
+
+    </table>
+</div>
+<script>
+    function del(id){
+        if(confirm("Are you sure you want to delete it?")){
+            // return true;
+            $.post('/deleteFornum',{'fornumid':id},function (data) {
+                if(data == 'true'){
+                    alert('Delete successfully');
+                    // $.each($("#user_table tr"),function (n,i) {
+                    //    if(n>0){
+                    //        i.remove();//移除元素
+                    //    }
+                    // })
+                    $("#"+id).remove();
+                   // getdata();//重新获取数据
+                }
+                else{
+                    alert('Delete failed');
+                }
+
+            },"text")
+        }
+        else{
+            return false;
+        }
+    }
+    $(function () {
+        getdata();
+    })
+    //获取用户信息
+    function getdata() {
+        $.post('/getAllFornum',null,function (data) {
+            $.each(data,function (n,i) {
+                $("#user_table").append("<tr id='"+i.fornumid+"'>\n" +
+                    "            <td>"+i.fornumid+"</td>\n" +
+                    "            <td>"+i.title+"</td>\n" +
+                    "            <td>"+i.content+"</td>\n" +
+                    "            <td>"+i.user.username+"</td>\n" +
+                    "            <td><img width='50px' height='50px' src='../../file/"+i.urls+"'/></td>\n" +
+                    "            <td> <button class=\"button border-red\"  onclick=\"return del("+i.fornumid+")\"><span class=\"icon-trash-o\"></span> delete</button></td>\n" +
+                    "        </tr>")
+            })
+
+
+        },"json")
+    }
+    
+    //添加用户信息
+    function addUser() {
+        var file = document.getElementById("image1");
+        var formData = new FormData();
+        formData.append("picture",file.files[0]);
+        formData.append("title",$("input[name='title']").val());
+        formData.append("content",$("textarea[name='content']").val());
+
+        $.ajax({
+            url:'/insertFornum',
+            type:'post',
+            data:formData,
+            contentType:false,
+            async: false,
+            cache: false,
+            processData: false,
+            success:function (data) {
+                // alert(data);
+                if(data == 'true'){
+
+                    $.each($("#user_table tr"),function (n,i) {
+                       if(n>0){
+                           i.remove();//移除元素
+                       }
+                    })
+                    getdata();
+                    alert('添加成功');
+                    $('form')[0].reset();
+                }
+                else{
+                    alert('添加失败');
+                }
+            }
+
+        })
+    }
+    $(function () {
+        $("#addUserBtn").click(function () {
+            addUser();
+        })
+    })
+    
+</script>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span></strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x" action="insertUser" enctype="multipart/form-data">
+            <input type="hidden" name="id"  value="" />
+            <div class="form-group">
+                <div class="label">
+                    <label>title</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="title" value="" data-validate="required:" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>content:</label>
+                </div>
+                <div class="field">
+                    <textarea type="text" class="input w50" name="content"  data-validate="required:"></textarea>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>headpic</label>
+                </div>
+                <div class="field">
+                   <!-- <input type="text" id="url1" name="banner" class="input tips" style="width:25%; float:left;"  value="" data-toggle="hover" data-place="right" data-image="" />-->
+                    <input  type="file" name="headPic" class="button bg-blue margin-left" id="image1" value="+ file"  style="float:left;">
+                    <div class="tipss"></div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button id="addUserBtn" class="button bg-main icon-check-square-o" type="button"> submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

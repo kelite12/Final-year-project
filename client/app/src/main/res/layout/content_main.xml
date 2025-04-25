@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    android:orientation="vertical"
+    tools:showIn="@layout/app_bar_main">
+
+
+    <LinearLayout
+        android:id="@+id/index_bottom_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/index_home_linear"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <ImageView
+                android:id="@+id/index_home_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+            <TextView
+                android:id="@+id/index_home_text"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="news"
+                android:textColor="@color/black"
+                android:textSize="12dip" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/index_contact_linear"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <ImageView
+                android:id="@+id/index_contact_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                />
+
+            <TextView
+                android:id="@+id/index_contact_text"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="Sports"
+                android:textColor="@color/black"
+                android:textSize="12dip" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/index_find_linear"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <ImageView
+                android:id="@+id/index_find_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                />
+
+            <TextView
+                android:id="@+id/index_find_text"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="chat"
+                android:textColor="@color/black"
+                android:textSize="12dip" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:id="@+id/index_me_linear"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <ImageView
+                android:id="@+id/index_me_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                />
+
+            <TextView
+                android:id="@+id/index_me_text"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="Health"
+                android:textColor="@color/black"
+                android:textSize="12dip" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/index_me_linear2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <ImageView
+                android:id="@+id/index_me_button2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                />
+
+            <TextView
+                android:id="@+id/index_me_text2"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="diet"
+                android:textColor="@color/black"
+                android:textSize="12dip" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_above="@+id/index_bottom_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tbviewpager"/>
+
+</RelativeLayout>

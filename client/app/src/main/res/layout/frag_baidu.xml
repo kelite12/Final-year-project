@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_aroundborder"
+        android:layout_margin="5dp"
+        android:hint="请输入地址"
+        android:paddingLeft="5dp"
+        android:id="@+id/baidu_frag_address"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/search_driver"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="驾车"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/edittext_aroundborder"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/search_walk"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="步行"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/edittext_aroundborder"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/search_bus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="公交"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/edittext_aroundborder"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mMapView"
+        />
+
+</LinearLayout>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+    <script src="../../js/netUtils.js"></script>
+</head>
+<body>
+
+<script>
+
+    var userid = "1"
+    $(function () {
+        var url=window.location.search; //获取url中"?"符后的字串
+        userid = url.substring(url.lastIndexOf("?")+1)
+        getdata();
+
+        $("#form").submit(function () {
+            // alert('hello')
+          var formData = new FormData();
+              formData.append("yinid",$("input[name='yinid']").val());
+              formData.append("title",$("input[name='title']").val());
+              var file_pics = document.getElementById("picture_pics");
+              if(file_pics){
+              formData.append("picture_pics",file_pics.files[0]);
+              }
+              formData.append("re",$("input[name='re']").val());
+              formData.append("dan",$("input[name='dan']").val());
+              formData.append("tang",$("input[name='tang']").val());
+              formData.append("gai",$("input[name='gai']").val());
+              formData.append("wei",$("input[name='wei']").val());
+              formData.append("qian",$("input[name='qian']").val());
+              formData.append("sendtime",$("input[name='sendtime']").val());
+            doPostFile('/updateYin',formData,function (data) {
+                if(data == 'true'){
+                    alert('修改成功');
+                    window.location.href='yin_info.html'
+                }
+                else{
+                    alert('修改失败');
+                }
+            },"text")
+            return false;
+        })
+    })
+
+    //获取信息
+    function getdata() {
+        doPost('/getYin',{'yinid':userid},function (yin) {
+            $("#form").append(
+                
+                
+                    "<div class='form-group'><div class='label'><label>yinid：</label></div><div class='field'><input  class='input w50' name='yinid' value='" + yin.yinid + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>title：</label></div><div class='field'><input  class='input w50' name='title' value='" + yin.title + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>pics：</label></div><div class='field'> <img id='img_pics' width='50px' height='50px' src='../../file/"+yin.pics+"'/> <input type='file'  id='picture_pics'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>re：</label></div><div class='field'><input  class='input w50' name='re' value='" + yin.re + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>dan：</label></div><div class='field'><input  class='input w50' name='dan' value='" + yin.dan + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>tang：</label></div><div class='field'><input  class='input w50' name='tang' value='" + yin.tang + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>gai：</label></div><div class='field'><input  class='input w50' name='gai' value='" + yin.gai + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>wei：</label></div><div class='field'><input  class='input w50' name='wei' value='" + yin.wei + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>qian：</label></div><div class='field'><input  class='input w50' name='qian' value='" + yin.qian + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>sendtime：</label></div><div class='field'><input  class='input w50' name='sendtime' value='" + yin.sendtime + "'/></div></div>"+
+                
+                " <div class='form - group'>" +
+                "   <div class='label'>" +
+                "       <label></label>" +
+                "   </div>" +
+                "   <div class='field'>" +
+                "       <button class='button bg-main  icon-check-square-o' type='submit'> 提交</button>" +
+                "   </div>" +
+                "</div>"
+                )
+
+            $("#img_pics").click(function () {$("#picture_pics").click();});$("#picture_pics").change(function () {$("#img_pics").attr('src',URL.createObjectURL($(this)[0].files[0]));})
+
+        },"json")
+    }
+
+
+
+    
+</script>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" id="form" class="form-x" action="/updateNews" enctype="multipart/form-data">
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

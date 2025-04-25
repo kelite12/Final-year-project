@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/news_textview_bg"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/movie_detail_img"
+            android:layout_width="100dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:layout_height="match_parent">
+
+        </ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="left"
+            >
+            <TextView
+                android:id="@+id/movie_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="暗杀"
+                android:textColor="@color/movie"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/movie_detail_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:text="98" />
+
+            <TextView
+                android:id="@+id/movie_detail_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="2019-12-12"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/movie_detail_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_margin="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:text="李维杰（肖央 饰）与妻子阿玉（谭卓 饰）打拼多年，膝下育有两个女儿。一个雨夜，一场意外，打破了这个家庭的宁静。而李维杰作为一个父亲，为了保全自己的家人，他不顾一切地决定瞒天过海"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/check_detail"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/login_buttonaround_bg"
+            android:text="选座购票"
+            android:textColor="@color/white"
+            android:textSize="25sp"></Button>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

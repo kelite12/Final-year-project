@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_person"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="My personal information" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="I need to clock in" />
+        <item
+            android:id="@+id/nav_cang"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Start counting steps" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="historical records" />
+        <item
+            android:id="@+id/nav_health"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="health data" />
+        <item
+            android:id="@+id/nav_baidu"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Map" />
+
+        <item
+            android:id="@+id/nav_updatepass"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Change Password" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_aboutme"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_about" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="exit" />
+        </menu>
+    </item>
+
+</menu>

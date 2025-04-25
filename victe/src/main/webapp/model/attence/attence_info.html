@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
+    <div class="padding border-bottom" style="display: none;">
+        <a class="button border-yellow" href=""><span class="icon-plus-square-o"></span> 添加内容</a>
+    </div>
+    <table id="user_table" class="table table-hover text-center">
+        <tr>
+            <th width="5%">ID</th>
+            <th>用户名</th>
+            <th>地址</th>
+            <th>时间</th>
+            <th>考勤图片</th>
+
+            <th width="250">操作</th>
+        </tr>
+
+
+
+
+
+    </table>
+</div>
+<script>
+    function del(id){
+        if(confirm("您确定要删除吗?")){
+            // return true;
+            $.post('/deleteAttence',{'attenceid':id},function (data) {
+                if(data == 'true'){
+                    alert('删除成功');
+                    // $.each($("#user_table tr"),function (n,i) {
+                    //    if(n>0){
+                    //        i.remove();//移除元素
+                    //    }
+                    // })
+                    $("#"+id).remove();
+                   // getdata();//重新获取数据
+                }
+                else{
+                    alert('删除失败');
+                }
+
+            },"text")
+        }
+        else{
+            return false;
+        }
+    }
+    $(function () {
+        getdata();
+    })
+    //获取用户信息
+    function getdata() {
+        $.post('/getAllAttence',null,function (data) {
+            $.each(data,function (n,i) {
+                $("#user_table").append("<tr id='"+i.attenceid+"'>\n" +
+                    "            <td>"+i.attenceid+"</td>\n" +
+                    "            <td>"+i.user.username+"</td>\n" +
+                    "            <td>"+i.address+"</td>\n" +
+                    "            <td>"+i.time+"</td>\n" +
+                    "            <td><img width='50px' height='50px' src='../../file/"+i.remark1+"'/></td>\n" +
+                    "            <td> <button class=\"button border-red\"  onclick=\"return del("+i.attenceid+")\"><span class=\"icon-trash-o\"></span> 删除</button></td>\n" +
+                    "        </tr>")
+            })
+
+
+        },"json")
+    }
+    
+    //添加用户信息
+    function addUser() {
+        var file = document.getElementById("image1");
+        var formData = new FormData();
+       formData.append("pic",file.files[0]);
+        formData.append("username",$("input[name='username']").val());
+        formData.append("password",$("input[name='password']").val());
+        formData.append("age",$("input[name='age']").val());
+        formData.append("sex",$("input[name='sex']").val());
+        formData.append("nickname",$("input[name='nickname']").val());
+        formData.append("tel",$("input[name='tel']").val());
+        $.ajax({
+            url:'/insertUser',
+            type:'post',
+            data:formData,
+            contentType:false,
+            async: false,
+            cache: false,
+            processData: false,
+            success:function (data) {
+                // alert(data);
+                if(data == 'true'){
+
+                    $.each($("#user_table tr"),function (n,i) {
+                       if(n>0){
+                           i.remove();//移除元素
+                       }
+                    })
+                    getdata();
+                    alert('添加成功');
+                    $('form')[0].reset();
+                }
+                else{
+                    alert('添加失败');
+                }
+            }
+
+        })
+    }
+
+    
+</script>
+
+</body>
+</html>

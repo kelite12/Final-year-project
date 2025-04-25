@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>Website Information</title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+    <script src="../../js/netUtils.js"></script>
+    <style type="text/css">
+        .search_input{
+            width: 200px;
+            height: 40px;
+            float: left;
+
+        }
+        .search_div{
+            float: left;
+            line-height: 40px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="#">
+    <div class="form-group">
+        <div class="field">
+            <div class="search_div">username</div>
+            <input type="text" placeholder="enter one user name" class="input search_input" name="stitle"/>
+            <button style="margin-left: 20px;" type="button" class="button border-red" id="searchUserBtn"><span class="icon-search-minus"></span> search</button>
+        </div>
+    </div>
+</form>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> </strong></div>
+    <div class="padding border-bottom" style="display: none;">
+        <a class="button border-yellow" href=""><span class="icon-plus-square-o"></span> </a>
+    </div>
+    <table id="user_table" class="table table-hover text-center">
+        <tr>
+            <th width="5%">Serial Number</th>
+            <th>ID</th>
+            <th>user name</th>
+            <th>password</th>
+            <th>age</th>
+            <th>sex</th>
+            <th>nickname</th>
+            <th>profile picture</th>
+            <th>phone</th>
+            <th>height</th>
+            <th>weight</th>
+            <th width="250">operate</th>
+        </tr>
+
+
+
+
+
+    </table>
+</div>
+<p id="duan" align="center"></p>
+<script>
+    function del(id){
+        if(confirm("Are you sure you want to delete it?")){
+            doPost('/deleteUserByUserid',{'userid':id},function (data) {
+                if(data == 'true'){
+                    alert('Delete successfully');
+                    getdata();//重新获取数据
+                }
+                else{
+                    alert('Delete failed');
+                }
+            },"text")
+        }
+        else{
+            return false;
+        }
+    }
+    $(function () {
+        getdata();
+    })
+    //获取用户信息
+    function getdata(pageNo) {
+        //清除表格
+        $.each($("#user_table tr"),function (n,i) {
+            if(n>0){
+                i.remove();//移除元素
+            }
+        })
+
+        if(typeof pageNo == "undefined"){
+            pageNo = 1;
+        }
+        var param = {}
+        param.username = $("input[name='stitle']").val()
+        param.pageNo = pageNo
+
+        doPost('/getAllUser',param,function (data) {
+            $.each(data.resultList,function (n,i) {
+                $("#user_table").append("<tr id='"+i.userid+"'>\n" +
+                    "            <td>"+(n+1)+"</td>\n" +
+                    "            <td>"+i.userid+"</td>\n" +
+                    "            <td>"+i.username+"</td>\n" +
+                    "            <td>"+i.password+"</td>\n" +
+                    "            <td>"+i.age+"</td>\n" +
+                    "            <td>"+i.sex+"</td>\n" +
+                    "            <td>"+i.nickname+"</td>\n" +
+                    "            <td><img width='50px' height='50px' src='../../file/"+i.headPic+"'/></td>\n" +
+                    "            <td>"+i.tel+"</td>\n" +
+                    "            <td>"+i.height+"</td>\n" +
+                    "            <td>"+i.weight+"</td>\n" +
+                    "            <td> " +
+                    "<button class=\"button border-red\"  onclick=\"return del("+i.userid+")\"><span class=\"icon-trash-o\"></span> delete</button>" +
+                    "<button class=\"button border-red\"  onclick=\"return update("+i.userid+")\"><span class=\"icon-trash-o\"></span> update</button>" +
+                    "</td>\n" +
+                    "        </tr>")
+            })
+
+            //分页
+            $("#duan").html('')
+            $("#duan").append("<a href=\"javascript:void(0)\" onclick='getdata("+data.prePage+")'>previous page</a>  "+data.pageNo+"page,Total number of records"+data.rowCount+"Article total"+data.pageCount+"page  <a  href=\"javascript:void(0)\" onclick='getdata("+data.nextPage+")'>next page</a> ")
+
+
+        },"json")
+    }
+
+    //修改
+    function update(id) {
+        window.location.href='user_update_info.html?'+id;
+    }
+
+
+    //添加用户信息
+    function addUser() {
+        var file = document.getElementById("image1");
+        var formData = new FormData();
+       formData.append("pic",file.files[0]);
+        formData.append("username",$("input[name='username']").val());
+        formData.append("password",$("input[name='password']").val());
+        formData.append("age",$("input[name='age']").val());
+        formData.append("sex",$("select[name='sex']").val());
+        formData.append("nickname",$("input[name='nickname']").val());
+        formData.append("tel",$("input[name='tel']").val());
+        formData.append("height",$("input[name='height']").val());
+        formData.append("weight",$("input[name='weight']").val());
+        doPostFile('/insertUser',formData,function (data) {
+            if(data == 'true'){
+                alert('Added successfully');
+                $('form')[1].reset();
+                getdata();
+            }
+            else{
+                alert('Add failed');
+            }
+        },"text")
+    }
+    $(function () {
+        $("#addUserBtn").click(function () {
+            addUser();
+        })
+
+        //查询
+        $("#searchUserBtn").click(function () {
+            getdata();
+        })
+    })
+    
+</script>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x" action="insertUser" enctype="multipart/form-data">
+            <input type="hidden" name="id"  value="" />
+            <div class="form-group">
+                <div class="label">
+                    <label>username：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="username" value="" data-validate="required:请输入用户名" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>password:</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="password"  value="" data-validate="required:请输入密码" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label> profile picture</label>
+                </div>
+                <div class="field">
+                   <!-- <input type="text" id="url1" name="banner" class="input tips" style="width:25%; float:left;"  value="" data-toggle="hover" data-place="right" data-image="" />-->
+                    <input  type="file" name="headPic" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
+                    <div class="tipss"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>age：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" name="age" value="" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>sex：</label>
+                </div>
+                <div class="field">
+<!--                    <input type="text" class="input" name="sex" value="" />-->
+                    <select name="sex" class="input">
+                        <option selected>man</option>
+                        <option>woman</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="label">
+                    <label>nickname：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input" name="nickname" value=""/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>phone：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input" name="tel"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>height：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input" name="height"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>weight：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input" name="weight"></input>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button id="addUserBtn" class="button bg-main icon-check-square-o" type="button"> submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

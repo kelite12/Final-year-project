@@ -1,0 +1,174 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.rong.imlib"
+4    android:versionCode="2018011717"
+5    android:versionName="2.8.27" >
+6
+7    <uses-sdk
+7-->C:\111\client\IMLib\AndroidManifest.xml:4:5-47
+8        android:minSdkVersion="15"
+8-->C:\111\client\IMLib\AndroidManifest.xml:4:5-47
+9        android:targetSdkVersion="23" />
+9-->C:\111\client\IMLib\AndroidManifest.xml:4:15-44
+10
+11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+11-->C:\111\client\IMLib\AndroidManifest.xml:6:5-81
+11-->C:\111\client\IMLib\AndroidManifest.xml:6:22-78
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\111\client\IMLib\AndroidManifest.xml:7:5-67
+12-->C:\111\client\IMLib\AndroidManifest.xml:7:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\111\client\IMLib\AndroidManifest.xml:8:5-79
+13-->C:\111\client\IMLib\AndroidManifest.xml:8:22-76
+14    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+14-->C:\111\client\IMLib\AndroidManifest.xml:9:5-76
+14-->C:\111\client\IMLib\AndroidManifest.xml:9:22-73
+15    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+15-->C:\111\client\IMLib\AndroidManifest.xml:10:5-75
+15-->C:\111\client\IMLib\AndroidManifest.xml:10:22-72
+16    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+16-->C:\111\client\IMLib\AndroidManifest.xml:11:5-71
+16-->C:\111\client\IMLib\AndroidManifest.xml:11:22-68
+17    <uses-permission android:name="android.permission.GET_TASKS" />
+17-->C:\111\client\IMLib\AndroidManifest.xml:12:5-68
+17-->C:\111\client\IMLib\AndroidManifest.xml:12:22-65
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->C:\111\client\IMLib\AndroidManifest.xml:13:5-68
+18-->C:\111\client\IMLib\AndroidManifest.xml:13:22-65
+19    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+19-->C:\111\client\IMLib\AndroidManifest.xml:14:5-80
+19-->C:\111\client\IMLib\AndroidManifest.xml:14:22-77
+20    <uses-permission android:name="android.permission.VIBRATE" />
+20-->C:\111\client\IMLib\AndroidManifest.xml:15:5-66
+20-->C:\111\client\IMLib\AndroidManifest.xml:15:22-63
+21    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+21-->C:\111\client\IMLib\AndroidManifest.xml:16:5-79
+21-->C:\111\client\IMLib\AndroidManifest.xml:16:22-76
+22    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+22-->C:\111\client\IMLib\AndroidManifest.xml:17:5-81
+22-->C:\111\client\IMLib\AndroidManifest.xml:17:22-78
+23
+24    <application>
+24-->C:\111\client\IMLib\AndroidManifest.xml:19:5-92:19
+25
+26        <!-- imlib config begin -->
+27        <meta-data
+27-->C:\111\client\IMLib\AndroidManifest.xml:22:9-24:45
+28            android:name="RONG_CLOUD_APP_KEY"
+28-->C:\111\client\IMLib\AndroidManifest.xml:23:13-46
+29            android:value="82hegw5uh0g8x" />
+29-->C:\111\client\IMLib\AndroidManifest.xml:24:13-42
+30
+31        <service
+31-->C:\111\client\IMLib\AndroidManifest.xml:26:9-29:38
+32            android:name="io.rong.imlib.ipc.RongService"
+32-->C:\111\client\IMLib\AndroidManifest.xml:27:13-57
+33            android:exported="true"
+33-->C:\111\client\IMLib\AndroidManifest.xml:28:13-36
+34            android:process=":ipc" />
+34-->C:\111\client\IMLib\AndroidManifest.xml:29:13-35
+35        <service
+35-->C:\111\client\IMLib\AndroidManifest.xml:31:9-34:72
+36            android:name="io.rong.imlib.ReConnectService"
+36-->C:\111\client\IMLib\AndroidManifest.xml:32:13-45
+37            android:exported="true"
+37-->C:\111\client\IMLib\AndroidManifest.xml:33:13-36
+38            android:permission="android.permission.BIND_JOB_SERVICE" />
+38-->C:\111\client\IMLib\AndroidManifest.xml:34:13-69
+39
+40        <receiver
+40-->C:\111\client\IMLib\AndroidManifest.xml:36:9-38:39
+41            android:name="io.rong.imlib.ConnectChangeReceiver"
+41-->C:\111\client\IMLib\AndroidManifest.xml:37:13-63
+42            android:exported="true" />
+42-->C:\111\client\IMLib\AndroidManifest.xml:38:13-36
+43        <receiver
+43-->C:\111\client\IMLib\AndroidManifest.xml:40:9-42:38
+44            android:name="io.rong.imlib.HeartbeatReceiver"
+44-->C:\111\client\IMLib\AndroidManifest.xml:41:13-59
+45            android:process=":ipc" />
+45-->C:\111\client\IMLib\AndroidManifest.xml:42:13-35
+46        <!-- imlib config end -->
+47
+48
+49        <!-- 必选： SDK 核心功能 -->
+50        <!-- 第三方相关,向第三方推送服务请求 token 的服务 -->
+51        <!-- 处理 push 消息相关的服务 -->
+52        <service
+52-->C:\111\client\IMLib\AndroidManifest.xml:49:9-52:72
+53            android:name="io.rong.push.core.PushRegistrationService"
+53-->C:\111\client\IMLib\AndroidManifest.xml:50:13-69
+54            android:exported="true"
+54-->C:\111\client\IMLib\AndroidManifest.xml:51:13-36
+55            android:permission="android.permission.BIND_JOB_SERVICE" />
+55-->C:\111\client\IMLib\AndroidManifest.xml:52:13-69
+56        <service
+56-->C:\111\client\IMLib\AndroidManifest.xml:54:9-57:72
+57            android:name="io.rong.push.core.MessageHandleService"
+57-->C:\111\client\IMLib\AndroidManifest.xml:55:13-66
+58            android:exported="true"
+58-->C:\111\client\IMLib\AndroidManifest.xml:56:13-36
+59            android:permission="android.permission.BIND_JOB_SERVICE" />
+59-->C:\111\client\IMLib\AndroidManifest.xml:57:13-69
+60        <!-- push服务 -->
+61
+62        <service
+62-->C:\111\client\IMLib\AndroidManifest.xml:60:9-64:46
+63            android:name="io.rong.push.PushService"
+63-->C:\111\client\IMLib\AndroidManifest.xml:61:13-52
+64            android:exported="true"
+64-->C:\111\client\IMLib\AndroidManifest.xml:62:13-36
+65            android:permission="android.permission.BIND_JOB_SERVICE"
+65-->C:\111\client\IMLib\AndroidManifest.xml:63:13-69
+66            android:process="io.rong.push" />
+66-->C:\111\client\IMLib\AndroidManifest.xml:64:13-43
+67
+68        <!-- push 相关事件接收器 -->
+69        <receiver
+69-->C:\111\client\IMLib\AndroidManifest.xml:67:9-87:20
+70            android:name="io.rong.push.PushReceiver"
+70-->C:\111\client\IMLib\AndroidManifest.xml:68:13-53
+71            android:process="io.rong.push" > <!-- 此处进程可以改名，名称需要和PushService所在进程统一 -->
+71-->C:\111\client\IMLib\AndroidManifest.xml:69:13-43
+72            <!-- 心跳事件 -->
+73            <intent-filter>
+73-->C:\111\client\IMLib\AndroidManifest.xml:71:13-73:29
+74                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+74-->C:\111\client\IMLib\AndroidManifest.xml:72:17-80
+74-->C:\111\client\IMLib\AndroidManifest.xml:72:25-77
+75            </intent-filter>
+76            <!-- 网络变动事件 -->
+77            <intent-filter>
+77-->C:\111\client\IMLib\AndroidManifest.xml:75:13-77:29
+78                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+78-->C:\111\client\IMLib\AndroidManifest.xml:76:17-79
+78-->C:\111\client\IMLib\AndroidManifest.xml:76:25-76
+79            </intent-filter>
+80            <!-- 部分用户事件 -->
+81            <intent-filter>
+81-->C:\111\client\IMLib\AndroidManifest.xml:79:13-81:29
+82                <action android:name="android.intent.action.BOOT_COMPLETED" />
+82-->C:\111\client\IMLib\AndroidManifest.xml:80:17-79
+82-->C:\111\client\IMLib\AndroidManifest.xml:80:25-76
+83            </intent-filter>
+84            <intent-filter>
+84-->C:\111\client\IMLib\AndroidManifest.xml:82:13-86:29
+85                <action android:name="android.intent.action.USER_PRESENT" />
+85-->C:\111\client\IMLib\AndroidManifest.xml:83:17-77
+85-->C:\111\client\IMLib\AndroidManifest.xml:83:25-74
+86                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+86-->C:\111\client\IMLib\AndroidManifest.xml:84:17-87
+86-->C:\111\client\IMLib\AndroidManifest.xml:84:25-84
+87                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+87-->C:\111\client\IMLib\AndroidManifest.xml:85:17-90
+87-->C:\111\client\IMLib\AndroidManifest.xml:85:25-87
+88            </intent-filter>
+89        </receiver>
+90
+91        <!-- 必选： SDK 核心功能 -->
+92
+93
+94        <!-- end -->
+95    </application>
+96
+97</manifest>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/attence_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="2019年4月1日"
+        android:textColor="@color/colorAccent"
+        android:gravity="right"
+        android:textSize="18sp"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:id="@+id/attence_iv"
+        android:visibility="gone"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TextView
+        android:id="@+id/attence_time"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="加载中..."
+        android:textSize="30sp"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/attence_tv"
+        android:layout_margin="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="立即签到"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:background="@drawable/app_background"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看考勤"
+            android:id="@+id/show_attence_tv"
+            android:background="@drawable/edittext_aroundborder"
+            android:padding="10dp"
+            android:layout_gravity="right"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我要请假"
+            android:id="@+id/ask_tv"
+            android:background="@drawable/edittext_aroundborder"
+            android:padding="10dp"
+            android:layout_gravity="right"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+    <link rel="stylesheet" href="../../css/pintuer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/pintuer.js"></script>
+    <script src="../../js/netUtils.js"></script>
+</head>
+<body>
+
+<script>
+
+    var userid = "1"
+    $(function () {
+        var url=window.location.search; //获取url中"?"符后的字串
+        userid = url.substring(url.lastIndexOf("?")+1)
+        getdata();
+
+        $("#form").submit(function () {
+            // alert('hello')
+          var formData = new FormData();
+          var file = document.getElementById("image1");
+          if(file){
+              formData.append("picture",file.files[0]);
+          }
+          
+              formData.append("xiuid",$("input[name='xiuid']").val());
+          
+              formData.append("title",$("input[name='title']").val());
+          
+              formData.append("stime",$("input[name='stime']").val());
+          
+              formData.append("etime",$("input[name='etime']").val());
+          
+              formData.append("userid",$("input[name='userid']").val());
+          
+              formData.append("remark1",$("input[name='remark1']").val());
+          
+            doPostFile('/updateXiu',formData,function (data) {
+                if(data == 'true'){
+                    alert('修改成功');
+                    window.location.href='xiu_info.html'
+                }
+                else{
+                    alert('修改失败');
+                }
+            },"text")
+            return false;
+        })
+    })
+
+    //获取信息
+    function getdata() {
+        doPost('/getXiu',{'xiuid':userid},function (xiu) {
+            $("#form").append(
+                
+                
+                    "<div class='form-group'><div class='label'><label>xiuid：</label></div><div class='field'><input  class='input w50' name='xiuid' value='" + xiu.xiuid + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>title：</label></div><div class='field'><input  class='input w50' name='title' value='" + xiu.title + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>stime：</label></div><div class='field'><input  class='input w50' name='stime' value='" + xiu.stime + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>etime：</label></div><div class='field'><input  class='input w50' name='etime' value='" + xiu.etime + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>userid：</label></div><div class='field'><input  class='input w50' name='userid' value='" + xiu.userid + "'/></div></div>"+
+                
+                    "<div class='form-group'><div class='label'><label>remark1：</label></div><div class='field'><input  class='input w50' name='remark1' value='" + xiu.remark1 + "'/></div></div>"+
+                
+                " <div class='form - group'>" +
+                "   <div class='label'>" +
+                "       <label></label>" +
+                "   </div>" +
+                "   <div class='field'>" +
+                "       <button class='button bg-main  icon-check-square-o' type='submit'> 提交</button>" +
+                "   </div>" +
+                "</div>"
+                )
+
+            
+
+        },"json")
+    }
+
+
+
+    
+</script>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+    <div class="body-content">
+        <form method="post" id="form" class="form-x" action="/updateNews" enctype="multipart/form-data">
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
